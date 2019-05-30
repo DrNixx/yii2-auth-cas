@@ -8,6 +8,7 @@ namespace silecs\yii2auth\cas;
 
 use phpCAS;
 use Yii;
+use yii\base\BaseObject;
 use yii\helpers\Url;
 
 /**
@@ -15,7 +16,7 @@ use yii\helpers\Url;
  *
  * @author François Gannaz <francois.gannaz@silecs.info>
  */
-class CasService extends \yii\base\Object
+class CasService extends BaseObject
 {
     const LOGPATH = '@runtime/logs/cas.log';
 

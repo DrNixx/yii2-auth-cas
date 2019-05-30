@@ -33,6 +33,7 @@ class AuthController extends \yii\web\Controller
                 throw new \yii\web\HttpException(403, "This user has no access to the application.");
             }
         }
+
         return $this->goBack();
     }
 
@@ -42,6 +43,7 @@ class AuthController extends \yii\web\Controller
         if (!Yii::$app->getUser()->isGuest) {
             Yii::$app->getUser()->logout(true);
         }
+
         // In case the logout fails (not authenticated)
         return $this->redirect(Url::home(true));
     }
