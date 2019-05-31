@@ -33,6 +33,67 @@ class CasProfile extends \yii\base\Component
         if (phpCAS::isAuthenticated()) {
             return phpCAS::getUser();
         }
+
         return "";
+    }
+
+    /**
+     * Answer attributes about the authenticated user.
+     *
+     * @return array
+     */
+    public function getAttributes()
+    {
+        if (phpCAS::isAuthenticated()) {
+            return phpCAS::getAttributes();
+        }
+
+        return [];
+    }
+
+    /**
+     * Answer true if there are attributes for the authenticated user.
+     *
+     * @return bool
+     */
+    public static function hasAttributes()
+    {
+        if (phpCAS::isAuthenticated()) {
+            return phpCAS::hasAttributes();
+        }
+
+        return false;
+    }
+
+    /**
+     * Answer true if an attribute exists for the authenticated user.
+     *
+     * @param string $key attribute name
+     *
+     * @return bool
+     */
+    public static function hasAttribute($key)
+    {
+        if (phpCAS::isAuthenticated()) {
+            return phpCAS::hasAttribute($key);
+        }
+
+        return false;
+    }
+
+    /**
+     * Answer an attribute for the authenticated user.
+     *
+     * @param string $key attribute name
+     *
+     * @return mixed string for a single value or an array if multiple values exist.
+     */
+    public static function getAttribute($key)
+    {
+        if (phpCAS::isAuthenticated()) {
+            return phpCAS::getAttribute($key);
+        }
+
+        return null;
     }
 }
