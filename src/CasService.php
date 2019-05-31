@@ -25,22 +25,29 @@ class CasService extends BaseObject
     public $path;
 
     /**
-     *
      * @var string|boolean If defined, local path to a SSL certificate file,
      *                     or false to disable the certificate validation.
      */
     public $certfile;
+
+    public function __construct($config = [])
+    {
+        parent::__construct($config);
+    }
 
     public function init()
     {
         if (!isset($this->host, $this->port, $this->path)) {
             throw new \Exception("Incomplete CAS config. Required: host, port, path.");
         }
+
         // Force a Yii session to open to prevent phpCas from doing it on its own
         Yii::$app->session->open();
+
         // Init the phpCAS singleton
         phpCAS::setDebug(Yii::getAlias(self::LOGPATH));
         phpCAS::client(CAS_VERSION_2_0, $this->host, (int) $this->port, $this->path);
+
         if ($this->certfile) {
             phpCAS::setCasServerCACert($this->certfile);
         } else if ($this->certfile === false) {
