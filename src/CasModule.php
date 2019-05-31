@@ -23,6 +23,11 @@ class CasModule extends \yii\base\Module
      */
     public $controllerNamespace = 'silecs\yii2auth\cas\controllers';
 
+    public function __construct($id, $parent = null, $config = [])
+    {
+        parent::__construct($id, $parent, $config);
+    }
+
     /**
      * @var CasService
      */

@@ -50,7 +50,7 @@ class CasService extends BaseObject
 
         if ($this->certfile) {
             phpCAS::setCasServerCACert($this->certfile);
-        } else if ($this->certfile === false) {
+        } else if (empty($this->certfile) || ($this->certfile === false)) {
             phpCAS::setNoCasServerValidation();
         }
     }
