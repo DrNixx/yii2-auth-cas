@@ -56,7 +56,7 @@ class CasProfile extends \yii\base\Component
      *
      * @return bool
      */
-    public static function hasAttributes()
+    public function hasAttributes()
     {
         if (phpCAS::isAuthenticated()) {
             return phpCAS::hasAttributes();
@@ -72,7 +72,7 @@ class CasProfile extends \yii\base\Component
      *
      * @return bool
      */
-    public static function hasAttribute($key)
+    public function hasAttribute($key)
     {
         if (phpCAS::isAuthenticated()) {
             return phpCAS::hasAttribute($key);
@@ -88,7 +88,7 @@ class CasProfile extends \yii\base\Component
      *
      * @return mixed string for a single value or an array if multiple values exist.
      */
-    public static function getAttribute($key)
+    public function getAttribute($key)
     {
         if (phpCAS::isAuthenticated()) {
             return phpCAS::getAttribute($key);
