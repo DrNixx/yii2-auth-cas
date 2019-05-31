@@ -10,6 +10,8 @@ namespace silecs\yii2auth\cas;
  * A Yii2 Module that will handle the HTTP query of the CAS server.
  *
  * @author François Gannaz <francois.gannaz@silecs.info>
+ *
+ * @property-read CasService $casService
  */
 class CasModule extends \yii\base\Module
 {
