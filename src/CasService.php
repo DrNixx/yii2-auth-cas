@@ -24,6 +24,8 @@ class CasService extends BaseObject
     public $port;
     public $path;
 
+    public $logoutURL;
+
     /**
      * @var string|boolean If defined, local path to a SSL certificate file,
      *                     or false to disable the certificate validation.
@@ -52,6 +54,10 @@ class CasService extends BaseObject
             phpCAS::setCasServerCACert($this->certfile);
         } else if (empty($this->certfile) || ($this->certfile === false)) {
             phpCAS::setNoCasServerValidation();
+        }
+
+        if (!empty($this->logoutURL)) {
+            phpCAS::setServerLogoutURL($this->logoutURL);
         }
     }
 
